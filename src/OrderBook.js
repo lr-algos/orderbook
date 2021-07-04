@@ -45,12 +45,12 @@ const OrderBook = (props) => {
         console.log('___ closed ________')
         ws.current.close();
     };
-}, []);
+}, [dispatch]);
   
 
   const getSortedList = (map) => {
     const sortedList = Array.from(map).sort((a,b) => a[0] - b[0]);
-    const list = sortedList.map((item, index) => {
+    sortedList.map((item, index) => {
       const total = (index === 0) ? item[1] : sortedList[index - 1][2] + item[1];
       item.push(total)
     });
@@ -108,7 +108,7 @@ const OrderBook = (props) => {
           updateSortedList('ask', allAsks, asksMap);
       }
     };
-  }, [startFeed, shouldUnsubscribe, props.groupOrder]);
+  }, [startFeed, shouldUnsubscribe, props.groupOrder, dispatch]);
 
 
   useEffect(() => {
@@ -143,7 +143,7 @@ const OrderBook = (props) => {
         setProductId("PI_XBTUSD")
       }
       setShouldUnsubscribe(false);
-}, [shouldUnsubscribe]);
+}, [shouldUnsubscribe, dispatch]);
 
   const orderRows = (arr, type) =>
     arr &&
