@@ -45,14 +45,14 @@ const OrderBook = (props) => {
         console.log('___ closed ________')
         ws.current.close();
     };
-}, [dispatch]);
+}, [dispatch, productId]);
   
 
   const getSortedList = (map) => {
     const sortedList = Array.from(map).sort((a,b) => a[0] - b[0]);
     sortedList.map((item, index) => {
       const total = (index === 0) ? item[1] : sortedList[index - 1][2] + item[1];
-      item.push(total)
+      return item.push(total);
     });
     return sortedList;
   }
@@ -143,7 +143,7 @@ const OrderBook = (props) => {
         setProductId("PI_XBTUSD")
       }
       setShouldUnsubscribe(false);
-}, [shouldUnsubscribe, dispatch]);
+}, [shouldUnsubscribe, dispatch, productId]);
 
   const orderRows = (arr, type) =>
     arr &&
