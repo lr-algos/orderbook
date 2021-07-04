@@ -57,28 +57,31 @@ const OrderBook = (props) => {
     return sortedList;
   }
 
-  const updateSortedList = (type, allData, map) => {
-    allData?.forEach(item => {
-      if(item[1] === 0) {
-        map.delete(item[0]);
-      } else if(item[1] !== 0) {
-        const precision = props.groupOrder[0].label;
-        
-        let price = item[0]
-        if (precision !== undefined) {
-            price = ccxt.decimalToPrecision (price, ccxt.ROUND, precision, ccxt.TICK_SIZE)
-        }
-        map.set(price, item[1]);
-      }
-      if(type === 'bid') {
-        setBidList(getSortedList(map))
-      } else {
-        setAskList(getSortedList(map))
-      }
-    })
-  }
+  
 
   useEffect(() => {
+
+    const updateSortedList = (type, allData, map) => {
+      allData?.forEach(item => {
+        if(item[1] === 0) {
+          map.delete(item[0]);
+        } else if(item[1] !== 0) {
+          const precision = props.groupOrder[0].label;
+          
+          let price = item[0]
+          if (precision !== undefined) {
+              price = ccxt.decimalToPrecision (price, ccxt.ROUND, precision, ccxt.TICK_SIZE)
+          }
+          map.set(price, item[1]);
+        }
+        if(type === 'bid') {
+          setBidList(getSortedList(map))
+        } else {
+          setAskList(getSortedList(map))
+        }
+      })
+    }
+
     ws.current.onmessage = (event) => {
       
       if (startFeed || shouldUnsubscribe) return;
