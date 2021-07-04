@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Getting Started
+
+Clone the project
+
+### `git clone https://github.com/lr-algos/orderbook.git`
+
 ## Install Dependencies
 
 In the project directory, you can run:
