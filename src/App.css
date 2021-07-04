@@ -1,0 +1,103 @@
+.loading-container {
+ justify-content: center;
+ align-items:center;
+ display:flex;
+ flex:1;
+ height: 100vh;
+}
+.main-container {
+  position: relative;
+  margin-bottom: 100px;
+}
+.order-container {
+  display: flex;
+  width: 100%;
+}
+.main-title {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: 'center';
+}
+h1,
+h2 {
+  text-align: center;
+}
+td,
+th {
+  padding: 6px;
+  color: white;
+  background-color: #111827;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+html {
+   background-color: #111827;
+}
+.horizontal-divider {
+  border: 1px solid #2a3343;
+}
+.text-color {
+  color: #fff
+}
+.toggle-button {
+  width: 150px;
+  height: 50px;
+  background-color: #5443d9;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.kill-button {
+  width: 150px;
+  height: 50px;
+  background-color: red;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+}
+.button-container {
+  flex-direction: row;
+  display: flex;
+}
+.button-main {
+  padding: 10px;
+  position: fixed;
+  bottom: 0px;
+  background-color: #242d3c;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+.head-text {
+  color: #5d6472;
+}
+.hr-border {
+  border: 1px solid #2a3343;
+}
+.button-divider {
+  width: 50px;
+}
+.sell-price {
+  color: red;
+}
+.buy-price {
+  color: #0e9966;
+}
+
