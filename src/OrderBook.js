@@ -7,8 +7,7 @@ import './App.css';
 
 
 const OrderBook = (props) => {
-  const bidsMap = new Map();
-  const asksMap = new Map();
+  
 
   const [startFeed, setStartFeed] = useState(false);
   const [productId, setProductId] = useState('PI_XBTUSD');
@@ -61,6 +60,9 @@ const OrderBook = (props) => {
 
   useEffect(() => {
 
+    const bidsMap = new Map();
+    const asksMap = new Map();
+
     const updateSortedList = (type, allData, map) => {
       allData?.forEach(item => {
         if(item[1] === 0) {
@@ -106,6 +108,13 @@ const OrderBook = (props) => {
       } else {
           const allBids = response?.bids;
           const allAsks = response?.asks;
+
+          response?.bids?.forEach((bid, index) => {
+            if(index >= 0 && index <= 25) {
+              console.log(index, bid[0], bid[1])
+            }
+            
+          })
 
           updateSortedList('bid', allBids, bidsMap);
           updateSortedList('ask', allAsks, asksMap);
